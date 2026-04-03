@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <style>
@@ -297,6 +297,75 @@
 
         .left-arrow { left: 10px; }
         .right-arrow { right: 10px; }
+
+        /* Styling Input Form */
+        .custom-input {
+            background: transparent !important;
+            border: none !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+            border-radius: 0 !important;
+            color: white !important;
+            padding-left: 0 !important;
+        }
+
+        .custom-input:focus {
+            box-shadow: none !important;
+            border-bottom-color: white !important;
+        }
+
+        /* Tombol Submit */
+        .btn-submit {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(5px);
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: white;
+            color: #228b22;
+        }
+
+        /* Bar Email */
+        .email-bar {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Kotak Sosial Media */
+        .social-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 25px 10px;
+            text-decoration: none;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-box i {
+            font-size: 2rem;
+        }
+
+        .social-box span {
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .social-box:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 1.8rem; }
             .hero-photo-container { height: 60vh; padding-left: 20px; }
@@ -895,7 +964,7 @@
                 <div class="event-card border-0 shadow-sm h-100 d-flex flex-column">
                     <div class="event-img-container">
                         <span class="nav-arrow left-arrow"><i class="bi bi-chevron-left"></i></span>
-                        <img src="https://raw.githubusercontent.com/luizabere/asset2/main/evaluasi1.jpeg" alt="Evaluasi" class="img-fluid">
+                        <img src="https://raw.githubusercontent.com/luizabere/asset2/main/etp2.jpg" alt="Evaluasi" class="img-fluid">
                         <span class="nav-arrow right-arrow"><i class="bi bi-chevron-right"></i></span>
                     </div>
                     <div class="p-3 bg-white flex-grow-1" style="border-radius: 0 0 15px 15px;">
@@ -909,12 +978,12 @@
                 <div class="event-card border-0 shadow-sm h-100 d-flex flex-column">
                     <div class="event-img-container">
                         <span class="nav-arrow left-arrow"><i class="bi bi-chevron-left"></i></span>
-                        <img src="https://raw.githubusercontent.com/luizabere/asset2/main/sidang.jpeg" alt="Sidang Akhir" class="img-fluid">
+                        <img src="https://raw.githubusercontent.com/luizabere/asset2/main/sidang%20akhir.jpg" alt="Sidang Akhir" class="img-fluid">
                         <span class="nav-arrow right-arrow"><i class="bi bi-chevron-right"></i></span>
                     </div>
                     <div class="p-3 bg-white flex-grow-1" style="border-radius: 0 0 15px 15px;">
                         <h5 class="fw-bold mb-1">Sidang Akhir</h5>
-                        <p class="text-muted mb-0 small"><i>Pertanggungjawaban program kerja yang telah dilaksanakan selama satu periode.</i></p>
+                        <p class="text-muted mb-0 small"><i>Pertanggungjawaban program kerja HMP yang telah dilaksanakan selama satu periode.</i></p>
                     </div>
                 </div>
             </div>
@@ -923,7 +992,7 @@
                 <div class="event-card border-0 shadow-sm h-100 d-flex flex-column">
                     <div class="event-img-container">
                         <span class="nav-arrow left-arrow"><i class="bi bi-chevron-left"></i></span>
-                        <img src="https://raw.githubusercontent.com/luizabere/asset2/main/evaluasi2.jpeg" alt="Evaluasi Akhir" class="img-fluid">
+                        <img src="https://raw.githubusercontent.com/luizabere/asset2/main/eap.jpg" alt="Evaluasi Akhir" class="img-fluid">
                         <span class="nav-arrow right-arrow"><i class="bi bi-chevron-right"></i></span>
                     </div>
                     <div class="p-3 bg-white flex-grow-1" style="border-radius: 0 0 15px 15px;">
@@ -937,7 +1006,7 @@
                 <div class="event-card border-0 shadow-sm h-100 d-flex flex-column">
                     <div class="event-img-container">
                         <span class="nav-arrow left-arrow"><i class="bi bi-chevron-left"></i></span>
-                        <img src="https://raw.githubusercontent.com/luizabere/asset2/main/regenerasi.jpeg" alt="Regenerasi" class="img-fluid">
+                        <img src="https://raw.githubusercontent.com/luizabere/asset2/main/regen.jpeg" alt="Regenerasi" class="img-fluid">
                         <span class="nav-arrow right-arrow"><i class="bi bi-chevron-right"></i></span>
                     </div>
                     <div class="p-3 bg-white flex-grow-1" style="border-radius: 0 0 15px 15px;">
@@ -950,11 +1019,75 @@
         </div>
     </div>
 </section>
+<section id="contacts" class="py-5" style="background-color: #228b22;"> <div class="container">
+        <div class="mb-5">
+            <h2 class="display-6 fw-bold text-white px-4 py-2 d-inline-block" 
+                style="background: rgba(255,255,255,0.2); border-radius: 50px; backdrop-filter: blur(10px);">
+                Contacts
+            </h2>
+        </div>
+
+        <div class="row g-5 text-white">
+            <div class="col-lg-6">
+                <h3 class="fw-bold mb-3">Get In Touch</h3>
+                <p class="mb-4" style="opacity: 0.9;">Kritik & saran anda sangat dibutuhkan untuk inovasi/layanan kami.</p>
+                
+                <form>
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold">Name</label>
+                        <input type="text" class="form-control custom-input">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold">Email</label>
+                        <input type="email" class="form-control custom-input">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold">Message</label>
+                        <textarea class="form-control custom-input" rows="1"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-submit rounded-pill px-4">
+                        Submit <i class="bi bi-chevron-right ms-1"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="col-lg-6">
+                <h3 class="fw-bold mb-4">Quick Connect</h3>
+                
+                <div class="email-bar d-flex align-items-center p-3 mb-4">
+                    <i class="bi bi-envelope-fill fs-3 me-3 text-white"></i>
+                    <a href="mailto:bpmftd@machung.ac.id" class="email-link fw-bold text-white text-decoration-none">
+                        bpmftd@machung.ac.id
+                    </a>
+                </div>
+                <div class="row g-3">
+                    <div class="col-4">
+                        <a href="https://m.youtube.com/%40bpmftduniversitasmachung-b1d?fbclid=PAb21jcAQ823dleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadCRwk7mFm9VKiRwvijoPAtAa7XVgS33pfzuJsc44Gvgbq1nShB1PgxTPOJ_g_aem_HA72_l3XyFtwJgJaLXFSaQ" class="social-box">
+                            <i class="bi bi-youtube mb-2"></i>
+                            <span>YouTube</span>
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a href="https://www.instagram.com/bpmftdmachung?igsh=bmx0aGY4MnUxYzh3" class="social-box">
+                            <i class="bi bi-instagram mb-2"></i>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a href="https://www.tiktok.com/%40bpm.ftd.machung?_t=ZS-8wPHQuOZu7O&_r=1&fbclid=PAb21jcAQ8241leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAaefzr0ydV4uBrdc0n3ZzG3HD1LSGFLvBbW52TsIWSeoBTsCxmFrmIUY8SdWmQ_aem_Q3EWEzd5ZF1X7P0aR7wUDA" class="social-box">
+                            <i class="bi bi-tiktok mb-2"></i>
+                            <span>TikTok</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
-    <footer class="container mt-5 py-5 text-center">
-        <hr class="opacity-25">
-        <p class="small opacity-50">&copy; 2026 BPM FTD - Fakultas Teknologi dan Desain Universitas Ma Chung</p>
-    </footer>
+
+<footer class="py-4 text-center text-white" style="background-color: rgba(0,0,0,0.1);">
+    <p class="mb-0">© 2026 BPM FTD. All Rights Reserved.</p>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
