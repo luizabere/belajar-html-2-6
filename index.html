@@ -155,7 +155,7 @@
 
         /* Layout Spacing */
         .row.g-4 {
-            row-gap: 2rem !important; /* Memberikan jarak antar baris seperti angka 78 pada gambar */
+            row-gap: 1.5rem !important; /* Memberikan jarak antar baris seperti angka 78 pada gambar */
         }
     /* Styling Dasar Kartu */
         .comm-card {
@@ -231,7 +231,72 @@
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0,0,0,0.4) !important;
         }
+        /* Container kartu event agar tinggi sama */
+        .event-card {
+            transition: transform 0.3s ease;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
 
+        /* Memaksa deskripsi mengambil sisa ruang agar garis bawah kartu sejajar */
+        .flex-grow-1 {
+        flex-grow: 1;
+        }/* Pastikan row memiliki jarak antar baris */
+        #events .row.g-4 {
+            --bs-gutter-y: 2rem; /* Menambah jarak vertikal antar baris kartu */
+        }
+
+        .event-card {
+            transition: transform 0.3s ease;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .event-img-container {
+            position: relative;
+            height: 180px; /* Tinggi seragam untuk semua gambar */
+            background: #f0f0f0;
+        }
+
+        .event-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Mencegah gambar gepeng */
+            border-radius: 15px 15px 0 0;
+        }
+
+        .event-card h5 {
+            font-size: 1rem;
+            color: #212529;
+            min-height: 2.4em; /* Menjaga teks judul tetap sejajar meski 1 atau 2 baris */
+        }
+
+        /* Styling Panah Lingkaran Putih sesuai gambar */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            background: white; /* Lingkaran putih bersih */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 2;
+            opacity: 0.8;
+        }
+
+        .left-arrow { left: 10px; }
+        .right-arrow { right: 10px; }
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 1.8rem; }
             .hero-photo-container { height: 60vh; padding-left: 20px; }
@@ -700,11 +765,11 @@
     </div>
 
     <div class="row g-4">
-        
+ 
         <div class="col-lg-3 col-md-6">
             <div class="comm-card">
                 <div class="comm-img-box">
-                    <img src="https://raw.githubusercontent.com/luizabere/asset2/main/bph.jpeg" alt="BPH">
+                    <img src="https://raw.githubusercontent.com/luizabere/asset2/main/bph2.png" alt="BPH">
                     <div class="comm-overlay-title">
                         <h5>Badan Pengurus Harian</h5>
                     </div>
@@ -759,7 +824,133 @@
 
     </div>
 </section>
+<section id="events" class="py-5">
+    <div class="container">
+        <div class="mb-5">
+            <h2 class="display-6 fw-bold text-white px-4 py-2 d-inline-block" 
+                style="background: rgba(255,255,255,0.2); border-radius: 50px; backdrop-filter: blur(10px);">
+                Events
+            </h2>
+        </div>
 
+        <div class="row g-4">
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="event-card border-0 shadow-sm h-100 d-flex flex-column">
+                    <div class="event-img-container">
+                        <span class="nav-arrow left-arrow"><i class="bi bi-chevron-left"></i></span>
+                        <img src="https://raw.githubusercontent.com/luizabere/asset2/main/diklat.jpeg" alt="Diklat" class="img-fluid">
+                        <span class="nav-arrow right-arrow"><i class="bi bi-chevron-right"></i></span>
+                    </div>
+                    <div class="p-3 bg-white flex-grow-1" style="border-radius: 0 0 15px 15px;">
+                        <h5 class="fw-bold mb-1">Diklat HMP FTD</h5>
+                        <p class="text-muted mb-0 small"><i>Pelatihan kepada HMP FTD mengenai SOP, pemberkasan, hingga penaikan berkas administratif.</i></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="event-card border-0 shadow-sm h-100 d-flex flex-column">
+                    <div class="event-img-container">
+                        <span class="nav-arrow left-arrow"><i class="bi bi-chevron-left"></i></span>
+                        <img src="https://raw.githubusercontent.com/luizabere/asset2/main/ft2.jpeg" alt="Forum Terbuka" class="img-fluid">
+                        <span class="nav-arrow right-arrow"><i class="bi bi-chevron-right"></i></span>
+                    </div>
+                    <div class="p-3 bg-white flex-grow-1" style="border-radius: 0 0 15px 15px;">
+                        <h5 class="fw-bold mb-1">Forum Terbuka</h5>
+                        <p class="text-muted mb-0 small"><i>Forum untuk mendengarkan aspirasi mahasiswa lingkup Fakultas Teknologi dan Desain.</i></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="event-card border-0 shadow-sm h-100 d-flex flex-column">
+                    <div class="event-img-container">
+                        <span class="nav-arrow left-arrow"><i class="bi bi-chevron-left"></i></span>
+                        <img src="https://raw.githubusercontent.com/luizabere/asset2/main/benchmark.jpg" alt="Benchmark" class="img-fluid">
+                        <span class="nav-arrow right-arrow"><i class="bi bi-chevron-right"></i></span>
+                    </div>
+                    <div class="p-3 bg-white flex-grow-1" style="border-radius: 0 0 15px 15px;">
+                        <h5 class="fw-bold mb-1">Benchmark</h5>
+                        <p class="text-muted mb-0 small"><i>Studi banding dengan universitas lain guna membawa perubahan bagi BPM FTD.</i></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="event-card border-0 shadow-sm h-100 d-flex flex-column">
+                    <div class="event-img-container">
+                        <span class="nav-arrow left-arrow"><i class="bi bi-chevron-left"></i></span>
+                        <img src="https://raw.githubusercontent.com/luizabere/asset2/main/gtk.jpeg" alt="Get To Know" class="img-fluid">
+                        <span class="nav-arrow right-arrow"><i class="bi bi-chevron-right"></i></span>
+                    </div>
+                    <div class="p-3 bg-white flex-grow-1" style="border-radius: 0 0 15px 15px;">
+                        <h5 class="fw-bold mb-1">Get To Know</h5>
+                        <p class="text-muted mb-0 small"><i>Malam keakraban untuk mempererat hubungan dengan sesama anggota BPM FTD.</i></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="event-card border-0 shadow-sm h-100 d-flex flex-column">
+                    <div class="event-img-container">
+                        <span class="nav-arrow left-arrow"><i class="bi bi-chevron-left"></i></span>
+                        <img src="https://raw.githubusercontent.com/luizabere/asset2/main/evaluasi1.jpeg" alt="Evaluasi" class="img-fluid">
+                        <span class="nav-arrow right-arrow"><i class="bi bi-chevron-right"></i></span>
+                    </div>
+                    <div class="p-3 bg-white flex-grow-1" style="border-radius: 0 0 15px 15px;">
+                        <h5 class="fw-bold mb-1">Evaluasi Tengah Periode</h5>
+                        <p class="text-muted mb-0 small"><i>Evaluasi kinerja BPM FTD selama setengah periode oleh HMP dan atasan FTD.</i></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="event-card border-0 shadow-sm h-100 d-flex flex-column">
+                    <div class="event-img-container">
+                        <span class="nav-arrow left-arrow"><i class="bi bi-chevron-left"></i></span>
+                        <img src="https://raw.githubusercontent.com/luizabere/asset2/main/sidang.jpeg" alt="Sidang Akhir" class="img-fluid">
+                        <span class="nav-arrow right-arrow"><i class="bi bi-chevron-right"></i></span>
+                    </div>
+                    <div class="p-3 bg-white flex-grow-1" style="border-radius: 0 0 15px 15px;">
+                        <h5 class="fw-bold mb-1">Sidang Akhir</h5>
+                        <p class="text-muted mb-0 small"><i>Pertanggungjawaban program kerja yang telah dilaksanakan selama satu periode.</i></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="event-card border-0 shadow-sm h-100 d-flex flex-column">
+                    <div class="event-img-container">
+                        <span class="nav-arrow left-arrow"><i class="bi bi-chevron-left"></i></span>
+                        <img src="https://raw.githubusercontent.com/luizabere/asset2/main/evaluasi2.jpeg" alt="Evaluasi Akhir" class="img-fluid">
+                        <span class="nav-arrow right-arrow"><i class="bi bi-chevron-right"></i></span>
+                    </div>
+                    <div class="p-3 bg-white flex-grow-1" style="border-radius: 0 0 15px 15px;">
+                        <h5 class="fw-bold mb-1">Evaluasi Akhir Periode</h5>
+                        <p class="text-muted mb-0 small"><i>Evaluasi kinerja anggota dan keseluruhan organisasi di akhir masa jabatan.</i></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="event-card border-0 shadow-sm h-100 d-flex flex-column">
+                    <div class="event-img-container">
+                        <span class="nav-arrow left-arrow"><i class="bi bi-chevron-left"></i></span>
+                        <img src="https://raw.githubusercontent.com/luizabere/asset2/main/regenerasi.jpeg" alt="Regenerasi" class="img-fluid">
+                        <span class="nav-arrow right-arrow"><i class="bi bi-chevron-right"></i></span>
+                    </div>
+                    <div class="p-3 bg-white flex-grow-1" style="border-radius: 0 0 15px 15px;">
+                        <h5 class="fw-bold mb-1">Regenerasi</h5>
+                        <p class="text-muted mb-0 small"><i>Proses pemilihan Ketua BPM FTD yang baru untuk periode kepengurusan selanjutnya.</i></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+</section>
     <footer class="container mt-5 py-5 text-center">
         <hr class="opacity-25">
         <p class="small opacity-50">&copy; 2026 BPM FTD - Fakultas Teknologi dan Desain Universitas Ma Chung</p>
