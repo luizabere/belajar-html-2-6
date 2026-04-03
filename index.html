@@ -12,6 +12,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <style>
+        #profile, #structure, #commission, #events, #contact {
+        /* Memberikan margin saat proses scroll dilakukan */
+        scroll-margin-top: 80px; 
+        }
+        html {
+        /* Ganti 80px dengan tinggi navbar kamu */
+        scroll-padding-top: 80px; 
+        scroll-behavior: smooth;
+        }
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #006E07 0%, #1C9F1C 100%);
@@ -112,45 +121,51 @@
         .structure-section {
         color: white;
         }
-
-        /* Styling Kartu Anggota */
+        /* Update pada Member Card */
         .member-card {
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50px 50px 50px 50px; /* Sisi kiri melingkar mengikuti foto */
+            border-radius: 50px; 
             transition: transform 0.3s ease, background 0.3s ease;
             min-height: 80px;
+            
+            /* TAMBAHKAN INI */
+            position: relative; 
+            margin-left: 35px; /* Beri ruang di kiri agar foto tidak menabrak elemen lain */
+            padding-left: 45px !important; /* Beri jarak teks agar tidak tertutup foto */
         }
-
-        .member-card:hover {
-            transform: scale(1.05);
-            background: rgba(255, 255, 255, 0.25);
-        }
-
-        /* Styling Foto Melingkar */
-        .member-img-wrapper {
-            width: 70px;
-            height: 70px;
-            flex-shrink: 0;
-            border: 2px solid white;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-
         .member-img-wrapper img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            
+            /* TAMBAHKAN INI */
+            object-fit: cover; 
         }
 
-        .member-info h6 {
-            font-size: 0.9rem;
-            line-height: 1.2;
+        /* Update pada Wrapper Foto */
+        .member-img-wrapper {
+            /* Gunakan nilai yang sama */
+            width: 90px;
+            height: 120px;
+            
+            /* ATAU gunakan aspect ratio (Bootstrap 5.3+ atau CSS Modern) */
+            /* width: 90px; height: auto; aspect-ratio: 1/1; */
+            border-radius: 35%; /* Membuat lingkaran sempurna */
+            overflow: hidden; /* Memotong gambar yang melebihi lingkaran */
+            
+            /* Untuk positioning foto agar keluar dari border */
+            position: absolute;
+            left: -45px; /* Setengah dari lebar foto */
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        .member-info p {
-            font-size: 0.75rem;
+        /* Pastikan konten kartu tidak tertutup */
+        .member-info {
+            padding-right: 15px;
         }
 
         /* Layout Spacing */
@@ -312,7 +327,6 @@
             box-shadow: none !important;
             border-bottom-color: white !important;
         }
-
         /* Tombol Submit */
         .btn-submit {
             background: rgba(255, 255, 255, 0.2);
@@ -324,7 +338,7 @@
 
         .btn-submit:hover {
             background: white;
-            color: #228b22;
+            color: #1a912a;
         }
 
         /* Bar Email */
@@ -374,7 +388,7 @@
     </style>
 </head>
 <body>
-
+<section id="home">
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <div class="nav-custom-bg d-flex align-items-center w-100">
@@ -386,12 +400,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto"> 
-                        <li class="nav-item"><a class="nav-link text-white px-3" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-white px-3" href="#">Profile</a></li>
-                        <li class="nav-item"><a class="nav-link text-white px-3" href="#">Structure</a></li>
-                        <li class="nav-item"><a class="nav-link text-white px-3" href="#">Commission</a></li>
-                        <li class="nav-item"><a class="nav-link text-white px-3" href="#">Events</a></li>
-                        <li class="nav-item"><a class="nav-link text-white px-3" href="#">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link text-white px-3" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-white px-3" href="#profile">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link text-white px-3" href="#structure">Structure</a></li>
+                        <li class="nav-item"><a class="nav-link text-white px-3" href="#commission">Commission</a></li>
+                        <li class="nav-item"><a class="nav-link text-white px-3" href="#events">Events</a></li>
+                        <li class="nav-item"><a class="nav-link text-white px-3" href="#contacts">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -409,7 +423,9 @@
             </div>
         </div>
     </header>
-<section class="profile-section container py-5">
+</section>
+
+<section id="profile" class="profile-section container py-5">
     <div class="text-center mb-5">
         <h1 class="fw-bold display-5">Suara Mahasiswa,<br>Pilar Demokrasi Kampus</h1>
         <p class="mx-auto mt-4 opacity-75" style="max-width: 800px; font-style: italic; font-size: 0.95rem;">
@@ -478,7 +494,7 @@
         </div>
     </div>
 </section>
-<section class="structure-section container py-5">
+<section id="structure" class="structure-section container py-5">
     
     <div class="mb-5">
         <h2 class="display-6 fw-bold px-4 py-2 d-inline-block" style="background: rgba(255,255,255,0.2); border-radius: 60px; backdrop-filter: blur(10px);">Structure</h2>
@@ -501,7 +517,7 @@
         <div class="col-lg-3 col-md-6">
             <div class="member-card d-flex align-items-center p-2">
                 <div class="member-img-wrapper">
-                    <img src="URL_FOTO_LUIZA" alt="Scolastika Luiza">
+                    <img src="https://raw.githubusercontent.com/luizabere/asset2/main/fotobpmluiza.jpeg" alt="Scolastika Luiza">
                 </div>
                 <div class="member-info ms-3">
                     <h6 class="mb-0 fw-bold">Scolastika Luiza A. I. B.</h6>
@@ -541,8 +557,8 @@
                     <img src="URL_FOTO_EVAN" alt="Evan Dhancis">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Evan Dhancis Muljana</h6>
-                    <p class="small mb-0 opacity-75">Ketua</p>
+                    <h6 class="mb-0 fw-bold">Yeshua Ingan Pusuh M.T.</h6>
+                    <p class="small mb-0 opacity-75">Koor. Komisi Organisasi</p>
                 </div>
             </div>
         </div>
@@ -553,8 +569,8 @@
                     <img src="URL_FOTO_LUIZA" alt="Scolastika Luiza">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Scolastika Luiza A. I. B.</h6>
-                    <p class="small mb-0 opacity-75">Sekretaris 1</p>
+                    <h6 class="mb-0 fw-bold">Eric Wibisono</h6>
+                    <p class="small mb-0 opacity-75">Koor. Komisi Anggaran</p>
                 </div>
             </div>
         </div>
@@ -565,8 +581,8 @@
                     <img src="URL_FOTO_CHRISTIAN" alt="Christian Mikhael">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Christian Mikhael A. N.</h6>
-                    <p class="small mb-0 opacity-75">Sekretaris 2</p>
+                    <h6 class="mb-0 fw-bold">Jeremy Natanael S. P.</h6>
+                    <p class="small mb-0 opacity-75">Koor. Komisi Kemahasiswaan</p>
                 </div>
             </div>
         </div>
@@ -577,8 +593,8 @@
                     <img src="URL_FOTO_LUCAS" alt="Lucas Vincent">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Lucas Vincent Kurniawan</h6>
-                    <p class="small mb-0 opacity-75">Bendahara</p>
+                    <h6 class="mb-0 fw-bold">Alfa Christian Rafael Sihite</h6>
+                    <p class="small mb-0 opacity-75">Koomisi Organisasi</p>
                 </div>
             </div>
         </div>
@@ -589,8 +605,8 @@
                     <img src="URL_FOTO_EVAN" alt="Evan Dhancis">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Evan Dhancis Muljana</h6>
-                    <p class="small mb-0 opacity-75">Ketua</p>
+                    <h6 class="mb-0 fw-bold">Sutri Ajeng Neng Rahayu</h6>
+                    <p class="small mb-0 opacity-75">Komisi Organisasi</p>
                 </div>
             </div>
         </div>
@@ -601,8 +617,8 @@
                     <img src="URL_FOTO_LUIZA" alt="Scolastika Luiza">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Scolastika Luiza A. I. B.</h6>
-                    <p class="small mb-0 opacity-75">Sekretaris 1</p>
+                    <h6 class="mb-0 fw-bold">Felicia Larisa Jonathan</h6>
+                    <p class="small mb-0 opacity-75">Komisi Organisasi</p>
                 </div>
             </div>
         </div>
@@ -613,8 +629,8 @@
                     <img src="URL_FOTO_CHRISTIAN" alt="Christian Mikhael">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Christian Mikhael A. N.</h6>
-                    <p class="small mb-0 opacity-75">Sekretaris 2</p>
+                    <h6 class="mb-0 fw-bold">Angelina Felicia S.</h6>
+                    <p class="small mb-0 opacity-75">Komisi Organisasi</p>
                 </div>
             </div>
         </div>
@@ -625,8 +641,8 @@
                     <img src="URL_FOTO_LUCAS" alt="Lucas Vincent">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Lucas Vincent Kurniawan</h6>
-                    <p class="small mb-0 opacity-75">Bendahara</p>
+                    <h6 class="mb-0 fw-bold">Abigael Chandra G. S.</h6>
+                    <p class="small mb-0 opacity-75">Komisi Organisasi</p>
                 </div>
             </div>
         </div>
@@ -637,8 +653,8 @@
                     <img src="URL_FOTO_EVAN" alt="Evan Dhancis">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Evan Dhancis Muljana</h6>
-                    <p class="small mb-0 opacity-75">Ketua</p>
+                    <h6 class="mb-0 fw-bold">So Osvaldo</h6>
+                    <p class="small mb-0 opacity-75">Komisi Organisasi</p>
                 </div>
             </div>
         </div>
@@ -649,8 +665,8 @@
                     <img src="URL_FOTO_LUIZA" alt="Scolastika Luiza">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Scolastika Luiza A. I. B.</h6>
-                    <p class="small mb-0 opacity-75">Sekretaris 1</p>
+                    <h6 class="mb-0 fw-bold">Leon Lianto Jony</h6>
+                    <p class="small mb-0 opacity-75">Komisi Organisasi</p>
                 </div>
             </div>
         </div>
@@ -661,8 +677,8 @@
                     <img src="URL_FOTO_CHRISTIAN" alt="Christian Mikhael">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Christian Mikhael A. N.</h6>
-                    <p class="small mb-0 opacity-75">Sekretaris 2</p>
+                    <h6 class="mb-0 fw-bold">David Augusto</h6>
+                    <p class="small mb-0 opacity-75">Komisi Anggaran</p>
                 </div>
             </div>
         </div>
@@ -673,8 +689,8 @@
                     <img src="URL_FOTO_LUCAS" alt="Lucas Vincent">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Lucas Vincent Kurniawan</h6>
-                    <p class="small mb-0 opacity-75">Bendahara</p>
+                    <h6 class="mb-0 fw-bold">Elizabeth Anndini S. P.</h6>
+                    <p class="small mb-0 opacity-75">Komisi Anggaran</p>
                 </div>
             </div>
         </div>
@@ -686,8 +702,8 @@
                     <img src="URL_FOTO_EVAN" alt="Evan Dhancis">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Evan Dhancis Muljana</h6>
-                    <p class="small mb-0 opacity-75">Ketua</p>
+                    <h6 class="mb-0 fw-bold">Tsamarah Hisanah D.</h6>
+                    <p class="small mb-0 opacity-75">Komisi Anggaran</p>
                 </div>
             </div>
         </div>
@@ -698,8 +714,8 @@
                     <img src="URL_FOTO_LUIZA" alt="Scolastika Luiza">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Scolastika Luiza A. I. B.</h6>
-                    <p class="small mb-0 opacity-75">Sekretaris 1</p>
+                    <h6 class="mb-0 fw-bold">Rafael Septian Yudhanto</h6>
+                    <p class="small mb-0 opacity-75">Komisi Anggaran</p>
                 </div>
             </div>
         </div>
@@ -710,8 +726,8 @@
                     <img src="URL_FOTO_CHRISTIAN" alt="Christian Mikhael">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Christian Mikhael A. N.</h6>
-                    <p class="small mb-0 opacity-75">Sekretaris 2</p>
+                    <h6 class="mb-0 fw-bold">Mahesa Dwi Putra</h6>
+                    <p class="small mb-0 opacity-75">Komisi Anggaran</p>
                 </div>
             </div>
         </div>
@@ -722,8 +738,8 @@
                     <img src="URL_FOTO_LUCAS" alt="Lucas Vincent">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Lucas Vincent Kurniawan</h6>
-                    <p class="small mb-0 opacity-75">Bendahara</p>
+                    <h6 class="mb-0 fw-bold">Daniel Putra Wijaya</h6>
+                    <p class="small mb-0 opacity-75">Komisi Anggaran</p>
                 </div>
             </div>
         </div>
@@ -735,8 +751,8 @@
                     <img src="URL_FOTO_EVAN" alt="Evan Dhancis">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Evan Dhancis Muljana</h6>
-                    <p class="small mb-0 opacity-75">Ketua</p>
+                    <h6 class="mb-0 fw-bold">Geofanie Ayori Susanto</h6>
+                    <p class="small mb-0 opacity-75">Komisi Kemahasiswaan</p>
                 </div>
             </div>
         </div>
@@ -747,8 +763,8 @@
                     <img src="URL_FOTO_LUIZA" alt="Scolastika Luiza">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Scolastika Luiza A. I. B.</h6>
-                    <p class="small mb-0 opacity-75">Sekretaris 1</p>
+                    <h6 class="mb-0 fw-bold">Alfius Diorta Efata</h6>
+                    <p class="small mb-0 opacity-75">Komisi Kemahasiswaan</p>
                 </div>
             </div>
         </div>
@@ -759,8 +775,8 @@
                     <img src="URL_FOTO_CHRISTIAN" alt="Christian Mikhael">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Christian Mikhael A. N.</h6>
-                    <p class="small mb-0 opacity-75">Sekretaris 2</p>
+                    <h6 class="mb-0 fw-bold">Bonaventura Agung W.</h6>
+                    <p class="small mb-0 opacity-75">Komisi Kemahasiswaan</p>
                 </div>
             </div>
         </div>
@@ -771,8 +787,8 @@
                     <img src="URL_FOTO_LUCAS" alt="Lucas Vincent">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Lucas Vincent Kurniawan</h6>
-                    <p class="small mb-0 opacity-75">Bendahara</p>
+                    <h6 class="mb-0 fw-bold">Jeremy Marcellino L.</h6>
+                    <p class="small mb-0 opacity-75">Komisi Kemahasiswaan</p>
                 </div>
             </div>
         </div>
@@ -783,8 +799,8 @@
                     <img src="URL_FOTO_EVAN" alt="Evan Dhancis">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Evan Dhancis Muljana</h6>
-                    <p class="small mb-0 opacity-75">Ketua</p>
+                    <h6 class="mb-0 fw-bold">Amelia Dharma Putri</h6>
+                    <p class="small mb-0 opacity-75">Komisi Kemahasiswaan</p>
                 </div>
             </div>
         </div>
@@ -795,8 +811,8 @@
                     <img src="URL_FOTO_LUIZA" alt="Scolastika Luiza">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Scolastika Luiza A. I. B.</h6>
-                    <p class="small mb-0 opacity-75">Sekretaris 1</p>
+                    <h6 class="mb-0 fw-bold">Janice Agatha Shalomita</h6>
+                    <p class="small mb-0 opacity-75">Komisi Kemahasiswaan</p>
                 </div>
             </div>
         </div>
@@ -807,8 +823,8 @@
                     <img src="URL_FOTO_CHRISTIAN" alt="Christian Mikhael">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Christian Mikhael A. N.</h6>
-                    <p class="small mb-0 opacity-75">Sekretaris 2</p>
+                    <h6 class="mb-0 fw-bold">Marcellia Anabella D. S.</h6>
+                    <p class="small mb-0 opacity-75">Komisi Kemahasiswaan</p>
                 </div>
             </div>
         </div>
@@ -819,15 +835,15 @@
                     <img src="URL_FOTO_LUCAS" alt="Lucas Vincent">
                 </div>
                 <div class="member-info ms-3">
-                    <h6 class="mb-0 fw-bold">Lucas Vincent Kurniawan</h6>
-                    <p class="small mb-0 opacity-75">Bendahara</p>
+                    <h6 class="mb-0 fw-bold">Chamelia Christine S.</h6>
+                    <p class="small mb-0 opacity-75">Komisi Kemahasiswaan</p>
                 </div>
             </div>
         </div>
         </div>
 </section>
 
-<section class="commission-section container py-5">
+<section id="commission" class="commission-section container py-5">
     
     <div class="mb-5">
         <h2 class="display-6 fw-bold px-4 py-2 d-inline-block" style="background: rgba(255,255,255,0.2); border-radius: 50px; backdrop-filter: blur(10px);">Commission</h2>
@@ -1019,7 +1035,8 @@
         </div>
     </div>
 </section>
-<section id="contacts" class="py-5" style="background-color: #228b22;"> <div class="container">
+<section id="contacts" class="py-5 bg-transparent"> 
+    <div class="container">
         <div class="mb-5">
             <h2 class="display-6 fw-bold text-white px-4 py-2 d-inline-block" 
                 style="background: rgba(255,255,255,0.2); border-radius: 50px; backdrop-filter: blur(10px);">
